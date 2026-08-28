@@ -5,6 +5,7 @@
     <columns>Year__c</columns>
     <columns>Genre__c</columns>
     <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

@@ -54,6 +54,7 @@
     </types>
     <types>
         <members>Populate_Movie_Plot_Batch</members>
+        <members>New_Prompt_Template_Batch</members>
         <name>Flow</name>
     </types>
     <types>
