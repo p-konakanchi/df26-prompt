@@ -1,0 +1,18 @@
+{
+  "lightning:supportsPersonalization" : true,
+  "description" : "",
+  "lightning:type" : "lightning__objectType",
+  "title" : "MovieReviewType",
+  "properties" : {
+    "IMDBRating" : {
+      "title" : "IMDBRating",
+      "description" : "IMDB Rating",
+      "lightning:type" : "lightning__textType"
+    },
+    "Review" : {
+      "title" : "Review",
+      "description" : "One sentence critics review without any spoilers",
+      "lightning:type" : "lightning__textType"
+    }
+  }
+}
