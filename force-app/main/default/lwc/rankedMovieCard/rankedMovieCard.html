@@ -1,0 +1,43 @@
+<template>
+    <div class="ranked-movie-card__wrapper">
+        <template if:true={isLoading}>
+            <div class="slds-box slds-box_x-small ranked-movie-card__row">
+                <div class="slds-text-heading_small">{name}</div>
+                <lightning-spinner alternative-text="Scoring" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={hasError}>
+            <div class="slds-box slds-box_x-small slds-theme_error ranked-movie-card__row">
+                <div class="slds-text-heading_small slds-m-bottom_small">{name}</div>
+                <div class="slds-text-body_small">{errorMessage}</div>
+            </div>
+        </template>
+
+        <template if:true={isReady}>
+            <div class={containerClass}>
+                <template if:true={isTopPick}>
+                    <span class="ranked-movie-card__top-pick-flag">🏆 Top Pick</span>
+                </template>
+                <img src={posterLink} alt={name} class="ranked-movie-card__poster" />
+                <div class="ranked-movie-card__body">
+                    <div class="slds-text-heading_small">{name}</div>
+                    <div class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+                        {year} &bull; {genre}
+                    </div>
+                    <div class="slds-m-bottom_x-small">
+                        <span class={badgeClass}>{badgeLabel}</span>
+                    </div>
+                    <template if:true={plainPlotSummary}>
+                        <div class="ranked-movie-card__plot slds-text-body_small slds-m-bottom_x-small">
+                            {plainPlotSummary}
+                        </div>
+                    </template>
+                    <div class="ranked-movie-card__reasoning slds-text-color_weak">
+                        {reasoning}
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

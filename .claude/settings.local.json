@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-adaptor__doc_search",
+      "mcp__plugin_codesearch_codesearch__search",
+      "mcp__mcp-adaptor__search",
+      "Bash(python3 -)",
+      "WebFetch(domain:developer.salesforce.com)"
+    ]
+  }
+}

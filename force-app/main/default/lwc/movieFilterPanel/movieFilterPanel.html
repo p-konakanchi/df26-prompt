@@ -1,0 +1,154 @@
+<template>
+    <div class={pageClass}>
+        <div class="movie-night-logo slds-p-top_small slds-p-left_small">
+            <span class="movie-night-logo__mark">🎬</span>
+            <span class="movie-night-logo__text">Movie<span>Night</span></span>
+        </div>
+
+        <template if:false={showResults}>
+            <div class="movie-filter-hero slds-m-bottom_medium">
+                <div class="movie-filter-hero__icon">🍿</div>
+                <div>
+                    <div class="movie-filter-hero__title">What are you in the mood for?</div>
+                    <div class="movie-filter-hero__subtitle">
+                        Pick a year and a few genres, and we'll find and rank tonight's pick for you.
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-filter-card">
+                <div class="movie-filter-card__header slds-p-around_medium">
+                    <lightning-icon icon-name="custom:custom45" size="small" class="movie-filter-card__header-icon"></lightning-icon>
+                    <span class="movie-filter-card__header-title">Movie Picker</span>
+                </div>
+                <div class="slds-p-around_medium">
+                    <!-- Dual-listbox genre picker (previous approach) — kept here in case we switch back.
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                            <lightning-combobox name="year" label="Year" value={selectedYear} placeholder="Select Year..."
+                                options={yearOptions} onchange={handleYearChange}></lightning-combobox>
+                        </div>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <lightning-dual-listbox name="genre" label="Genre" source-label="Available" selected-label="Selected"
+                            options={genreOptions} value={selectedGenres} onchange={handleGenreChange}
+                            disable-reordering></lightning-dual-listbox>
+                    </div>
+                    -->
+
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <div class="movie-filter-label">Year</div>
+                            <lightning-combobox name="year" variant="label-hidden" label="Year" value={selectedYear}
+                                placeholder="Select Year..." options={yearOptions} onchange={handleYearChange}></lightning-combobox>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_9-of-12">
+                            <div class="movie-filter-label">Genre</div>
+                            <lightning-combobox name="genre" variant="label-hidden" label="Genre" placeholder="Add a genre..."
+                                options={availableGenreOptions} onchange={handleGenreAdd}></lightning-combobox>
+                            <template if:true={selectedGenrePills.length}>
+                                <div class="slds-m-top_x-small">
+                                    <lightning-pill-container items={selectedGenrePills}
+                                        onitemremove={handleGenreRemove}></lightning-pill-container>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="slds-m-top_medium" style="display: flex; justify-content: center;">
+                        <lightning-button variant="brand" label="Find Movies" icon-name="utility:search"
+                            class="movie-filter-cta" onclick={handleFindMovies}></lightning-button>
+                    </div>
+
+                    <template if:true={isLoading}>
+                        <div class="slds-align_absolute-center slds-m-top_medium">
+                            <lightning-spinner alternative-text="Searching" size="small"></lightning-spinner>
+                        </div>
+                    </template>
+
+                    <template if:true={errorMessage}>
+                        <div class="slds-m-top_medium" style="display: flex; justify-content: center; color: #ff6b6b;">
+                            {errorMessage}
+                        </div>
+                    </template>
+
+                    <template if:true={hasNoResults}>
+                        <div class="slds-m-top_medium" style="display: flex; justify-content: center; color: #a8a8a8;">
+                            No movies matched your filters. Try widening your selection.
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={showResults}>
+            <template if:false={showRanking}>
+                <div class="movie-filter-hero movie-filter-hero_results slds-m-bottom_medium">
+                    <div class="movie-filter-hero__icon">🎯</div>
+                    <div>
+                        <div class="movie-filter-hero__title">Pick your contenders</div>
+                        <div class="movie-filter-hero__subtitle">
+                            Select a few movies below, then let AI rank tonight's winner.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_medium">
+                    <lightning-button variant="neutral" label="Back to Search" icon-name="utility:back"
+                        onclick={handleBackToSearch}></lightning-button>
+                    <lightning-button variant="brand" label="Rank These For Tonight" disabled={isRankDisabled}
+                        icon-name="utility:magicwand" class="movie-filter-cta" onclick={handleRankThese}></lightning-button>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <template for:each={movies} for:item="movie">
+                        <div key={movie.id} data-id={movie.id} class={movie.cardClass}
+                            style="flex: 0 0 185px; cursor: pointer;" onclick={handleMovieToggle}>
+                            <div class="movie-result-card" style="width: 185px; display: flex; flex-direction: column; position: relative;">
+                                <lightning-input type="checkbox" checked={movie.selected}
+                                    class="slds-m-bottom_x-small movie-card__checkbox" data-id={movie.id}></lightning-input>
+                                <img src={movie.posterLink} alt={movie.name} class="movie-result-card__poster slds-m-bottom_x-small"
+                                    style="width: 185px; max-width: 100%; object-fit: cover;" />
+                                <div class="slds-text-heading_small slds-line-clamp_medium">{movie.name}</div>
+                                <div class="slds-text-body_small slds-text-color_weak">
+                                    {movie.year} &bull; {movie.genre}
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={showRanking}>
+                <div class="movie-filter-hero movie-filter-hero_results slds-m-bottom_medium">
+                    <div class="movie-filter-hero__icon">🏆</div>
+                    <div>
+                        <div class="movie-filter-hero__title">Tonight's Rankings</div>
+                        <div class="movie-filter-hero__subtitle">
+                            We have scored each pick — the top choice is highlighted below.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-m-bottom_medium">
+                    <lightning-button variant="neutral" label="Back to Results" icon-name="utility:back"
+                        onclick={handleBackToResultsFromRanking}></lightning-button>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                    <template for:each={rankedMovies} for:item="rankedMovie">
+                        <c-ranked-movie-card key={rankedMovie.id} name={rankedMovie.name}
+                            year={rankedMovie.year} genre={rankedMovie.genre}
+                            poster-link={rankedMovie.posterLink}
+                            plot-summary={rankedMovie.plotSummary}
+                            status={rankedMovie.status} score={rankedMovie.score}
+                            recommendation={rankedMovie.recommendation}
+                            reasoning={rankedMovie.reasoning}
+                            error-message={rankedMovie.errorMessage}
+                            is-top-pick={rankedMovie.isTopPick}></c-ranked-movie-card>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

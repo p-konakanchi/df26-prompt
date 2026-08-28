@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>gq1NI4O+2x8rS0KvQWXKFYfBrQtmes9zc5KNx9r5YXA=_2</activeVersionIdentifier>
+    <developerName>Movie_Web_Search</developerName>
+    <masterLabel>Movie Web Search</masterLabel>
+    <templateVersions>
+        <content>You are a movie-review research assistant with access to live web grounding.
+
+Using the search tool {!$SalesforceDataAction:webSearchStream.webSearchSummary} Search for {!$Input:movieName} ( {!$Input:year})
+
+Return: 
+
+1. IMDb rating, 
+2. A one-sentence critical consensus from the reception/reviews section without giving away any spoilers. The critical consensus should help the user decide if they should watch the movie or not.
+
+</content>
+        <inputs>
+            <apiName>movieName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>movieName</masterLabel>
+            <referenceName>Input:movieName</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>year</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>year</masterLabel>
+            <referenceName>Input:year</referenceName>
+            <required>true</required>
+        </inputs>
+        <outputSchema>MovieReviewType</outputSchema>
+        <primaryModel>sfdc_ai__DefaultGPT52</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://webSearchStream</definition>
+            <description>Returns a webSearchSummary (a concise text summary of the top search findings) and citationSources (a list of sources used as references).</description>
+            <label>Search the Web</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchQuery</parameterName>
+                <valueExpression>Search for {!$Input:movieName} ({!$Input:year})
+Return: IMDb rating, a one-sentence critical consensus from the 
+reception/reviews section.</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>siteFilter</parameterName>
+                <valueExpression>imdb.com, wikipedia.org, themoviedb.org</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>searchProvider</parameterName>
+                <valueExpression>brightdata</valueExpression>
+            </parameters>
+            <referenceName>SalesforceDataAction:webSearchStream</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>gq1NI4O+2x8rS0KvQWXKFYfBrQtmes9zc5KNx9r5YXA=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a movie-review research assistant with access to live web grounding.
+
+Using the search tool {!$SalesforceDataAction:webSearchStream.webSearchSummary} Search for {!$Input:movieName} ( {!$Input:year})
+
+Return: 
+
+1. IMDb rating, 
+2. A one-sentence critical consensus from the reception/reviews section without giving away any spoilers. The critical consensus should help the user decide if they should watch the movie or not.
+
+If the web search results do not contain a usable IMDb rating or critical consensus (for example, if results are empty, irrelevant, or inconclusive), do NOT return &quot;I don&apos;t know&quot; or leave the field blank. Instead, recall what you know about &quot; {!$Input:movieName}&quot; ( {!$Input:year}) from your own training knowledge and provide your best estimate of its IMDb rating and general critical reception. 
+
+</content>
+        <inputs>
+            <apiName>movieName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>movieName</masterLabel>
+            <referenceName>Input:movieName</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>year</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>year</masterLabel>
+            <referenceName>Input:year</referenceName>
+            <required>true</required>
+        </inputs>
+        <outputSchema>MovieReviewType</outputSchema>
+        <primaryModel>sfdc_ai__DefaultGPT52</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://webSearchStream</definition>
+            <description>Returns a webSearchSummary (a concise text summary of the top search findings) and citationSources (a list of sources used as references).</description>
+            <label>Search the Web</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchQuery</parameterName>
+                <valueExpression>Search for {!$Input:movieName} ({!$Input:year})
+Return: IMDb rating, a one-sentence critical consensus from the 
+reception/reviews section.</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>searchProvider</parameterName>
+                <valueExpression>brightdata</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>siteFilter</parameterName>
+                <valueExpression>imdb.com, wikipedia.org, themoviedb.org</valueExpression>
+            </parameters>
+            <referenceName>SalesforceDataAction:webSearchStream</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>gq1NI4O+2x8rS0KvQWXKFYfBrQtmes9zc5KNx9r5YXA=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a movie-review research assistant with access to live web grounding.
+
+Using the search tool {!$SalesforceDataAction:webSearchStream.webSearchSummary} Search for {!$Input:movieName} ( {!$Input:year})
+
+Return: 
+
+1. IMDb rating, 
+2. A one-sentence critical consensus from the reception/reviews section without giving away any spoilers. The critical consensus should help the user decide if they should watch the movie or not.
+Do not include any opening or closing remarks, or any pleasantries (e.g. do not say &quot;thank you&quot;, &quot;happy to help&quot;, &quot;your time is appreciated&quot; or similar) anywhere in the output.
+
+If the web search results do not contain a usable IMDb rating or critical consensus (for example, if results are empty, irrelevant, or inconclusive), do NOT return &quot;I don&apos;t know&quot; or leave the field blank. Instead, recall what you know about &quot; {!$Input:movieName}&quot; ( {!$Input:year}) from your own training knowledge and provide your best estimate of its IMDb rating and general critical reception. 
+
+</content>
+        <inputs>
+            <apiName>year</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>year</masterLabel>
+            <referenceName>Input:year</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>movieName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>movieName</masterLabel>
+            <referenceName>Input:movieName</referenceName>
+            <required>true</required>
+        </inputs>
+        <outputSchema>MovieReviewType</outputSchema>
+        <primaryModel>sfdc_ai__DefaultGPT52</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://webSearchStream</definition>
+            <description>Returns a webSearchSummary (a concise text summary of the top search findings) and citationSources (a list of sources used as references).</description>
+            <label>Search the Web</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchQuery</parameterName>
+                <valueExpression>Search for {!$Input:movieName} ({!$Input:year})
+Return: IMDb rating, a one-sentence critical consensus from the 
+reception/reviews section.</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>searchProvider</parameterName>
+                <valueExpression>brightdata</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>siteFilter</parameterName>
+                <valueExpression>imdb.com, wikipedia.org, themoviedb.org</valueExpression>
+            </parameters>
+            <referenceName>SalesforceDataAction:webSearchStream</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>gq1NI4O+2x8rS0KvQWXKFYfBrQtmes9zc5KNx9r5YXA=_3</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

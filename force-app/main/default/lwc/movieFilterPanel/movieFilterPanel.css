@@ -1,0 +1,157 @@
+.movie-filter-page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #141414;
+    border-radius: 0.75rem;
+}
+
+.movie-filter-page_wide {
+    max-width: 100%;
+}
+
+/* ---------- Wordmark / logo ---------- */
+
+.movie-night-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.movie-night-logo__mark {
+    font-size: 1.5rem;
+}
+
+.movie-night-logo__text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+}
+
+.movie-night-logo__text span {
+    color: #e5303e;
+}
+
+/* ---------- Hero banner ---------- */
+
+.movie-filter-hero {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(100deg, #1a1a1a 0%, #7a0c14 100%);
+    border-radius: 0.5rem;
+    color: #ffffff;
+    border: 1px solid #2e2e2e;
+}
+
+.movie-filter-hero_results {
+    background: linear-gradient(100deg, #1a1a1a 0%, #7a0c14 100%);
+}
+
+.movie-filter-hero__icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.movie-filter-hero__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.movie-filter-hero__subtitle {
+    font-size: 0.8125rem;
+    opacity: 0.85;
+}
+
+/* ---------- Movie Picker card ---------- */
+
+.movie-filter-card {
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+    background: #1f1f1f;
+    border: 1px solid #2e2e2e;
+}
+
+.movie-filter-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #2e2e2e;
+}
+
+.movie-filter-card__header-title {
+    color: #f5f5f5;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.movie-filter-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #d8d8d8;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.movie-filter-card lightning-combobox,
+.movie-filter-card lightning-input,
+.movie-filter-card lightning-pill-container {
+    --slds-c-input-color-background: #2a2a2a;
+    --slds-c-input-text-color: #f5f5f5;
+    --slds-c-input-color-border: #3e3e3e;
+    --slds-c-input-placeholder-text-color: #8a8a8a;
+    --slds-c-icon-color-foreground-default: #d8d8d8;
+    --sds-c-icon-color-foreground-default: #d8d8d8;
+}
+
+.movie-filter-cta {
+    --slds-c-button-brand-color-background: #e5303e;
+    --slds-c-button-brand-color-background-hover: #c8202d;
+    --slds-c-button-brand-color-background-active: #a8101d;
+    --slds-c-button-brand-color-border: #e5303e;
+    --sds-c-button-brand-color-background: #e5303e;
+    --sds-c-button-brand-color-background-hover: #c8202d;
+    --sds-c-button-brand-color-border: #e5303e;
+}
+
+/* ---------- Movie result poster cards ---------- */
+
+.movie-card {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background: #1f1f1f;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.movie-card .slds-text-heading_small {
+    color: #f5f5f5;
+}
+
+.movie-card .slds-text-color_weak {
+    color: #a8a8a8 !important;
+}
+
+.movie-card:hover {
+    box-shadow: 0 4px 14px 0 rgba(229, 48, 62, 0.35);
+    transform: translateY(-2px);
+}
+
+.movie-card_selected {
+    border-color: #e5303e;
+    box-shadow: 0 0 0 3px rgba(229, 48, 62, 0.3);
+}
+
+.movie-card__checkbox {
+    pointer-events: none;
+}
+
+.movie-result-card__poster {
+    border-radius: 6px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}

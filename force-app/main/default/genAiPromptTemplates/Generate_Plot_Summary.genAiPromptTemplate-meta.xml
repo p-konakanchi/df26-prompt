@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>/Vp/m5BL5bibCVTH1mq7IucAWunZODlP02qAvcbq98Y=_2</activeVersionIdentifier>
+    <developerName>Generate_Plot_Summary</developerName>
+    <masterLabel>Generate Plot Summary</masterLabel>
+    <templateVersions>
+        <content>You are a movie-night assistant generating a rich HTML summary card for a movie record detail page.
+
+Movie title: {!$Input:movieRecord.Name}
+Year: {!$Input:movieRecord.Year__c}
+Poster URL: {!$Input:movieRecord.Poster_Link__c}
+
+Build a single self-contained HTML snippet (no &lt;html&gt;, &lt;head&gt;, or &lt;body&gt; tags — just the snippet markup) with:
+- A container div using inline CSS only (no external stylesheets, no &lt;style&gt; blocks, no JavaScript, no &lt;script&gt; tags).
+- The poster image at the top: &lt;img src=&quot; {!$Input:movieRecord.Poster_Link__c}&quot; alt=&quot; {!$Input:movieRecord.Name} poster&quot; style=&quot;width:185px;border-radius:6px;display:block;&quot;&gt;. If the poster URL is blank, omit the image entirely rather than rendering a broken image tag.
+- A spoiler-free plot summary in 2-3 sentences below the poster. Do not reveal twists, endings, or major turning points.
+- A &quot;Vibe:&quot; line describing the overall vibe in one short phrase, using language someone would use when deciding what to watch tonight (for example: &quot;cozy and low-effort,&quot; &quot;intense, needs full attention,&quot; &quot;great background watch,&quot; &quot;date-night pick,&quot; &quot;loud, high-energy hangout pick,&quot; &quot;will spark a debate afterward&quot;).
+- A &quot;Tone:&quot; line noting the emotional tone in 2-3 words (e.g. &quot;funny, heartfelt,&quot; &quot;tense, cerebral,&quot; &quot;lighthearted, silly&quot;).
+
+Formatting rules:
+- Use only inline styles; keep the whole snippet visually simple and readable on a record detail page (plain text sizes, no large headers, no external fonts/images other than the poster).
+- Do not include a title header, preamble, closing remarks, or any pleasantries (e.g. do not say &quot;thank you&quot;, &quot;happy to help&quot;, &quot;your time is appreciated&quot; or similar) anywhere in the output.
+- Keep total visible text under 100 words, not counting HTML markup.
+- Return ONLY the raw HTML snippet — no markdown code fences, no comments, no explanation before or after.
+</content>
+        <inputs>
+            <apiName>movieRecord</apiName>
+            <definition>SOBJECT://Movie__c</definition>
+            <masterLabel>movieRecord</masterLabel>
+            <referenceName>Input:movieRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT52</primaryModel>
+        <responseFormat>HTML</responseFormat>
+        <status>Published</status>
+        <versionIdentifier>gq1NI4O+2x8rS0KvQWXKFYfBrQtmes9zc5KNx9r5YXA=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a movie-night assistant generating a rich HTML summary card for a movie record detail page.
+
+Movie title: {!$Input:movieRecord.Name}
+Year: {!$Input:movieRecord.Year__c}
+Poster URL: {!$Input:movieRecord.Poster_Link__c}
+
+Build a single self-contained HTML snippet (no &lt;html&gt;, &lt;head&gt;, or &lt;body&gt; tags — just the snippet markup) with:
+- A container div using inline CSS only (no external stylesheets, no &lt;style&gt; blocks, no JavaScript, no &lt;script&gt; tags).
+- The poster image at the top: &lt;img src=&quot; {!$Input:movieRecord.Poster_Link__c}&quot; alt=&quot; {!$Input:movieRecord.Name} poster&quot; style=&quot;width:185px;border-radius:6px;display:block;&quot;&gt;. If the poster URL is blank, omit the image entirely rather than rendering a broken image tag.
+- A spoiler-free plot summary in 2-3 sentences below the poster. Do not reveal twists, endings, or major turning points.
+- A &quot;Vibe:&quot; line describing the overall vibe in one short phrase, using language someone would use when deciding what to watch tonight (for example: &quot;cozy and low-effort,&quot; &quot;intense, needs full attention,&quot; &quot;great background watch,&quot; &quot;date-night pick,&quot; &quot;loud, high-energy hangout pick,&quot; &quot;will spark a debate afterward&quot;).
+- A &quot;Tone:&quot; line noting the emotional tone in 2-3 words (e.g. &quot;funny, heartfelt,&quot; &quot;tense, cerebral,&quot; &quot;lighthearted, silly&quot;).
+
+Formatting rules:
+- Use only inline styles; keep the whole snippet visually simple and readable on a record detail page (plain text sizes, no large headers, no external fonts/images other than the poster).
+- Do not include a title header, preamble, closing remarks, or any pleasantries (e.g. do not say &quot;thank you&quot;, &quot;happy to help&quot;, &quot;your time is appreciated&quot; or similar) anywhere in the output.
+- Keep total visible text under 100 words, not counting HTML markup.
+- Return ONLY the raw HTML snippet — no markdown code fences, no comments, no explanation before or after.
+</content>
+        <inputs>
+            <apiName>movieRecord</apiName>
+            <definition>SOBJECT://Movie__c</definition>
+            <masterLabel>movieRecord</masterLabel>
+            <referenceName>Input:movieRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT5</primaryModel>
+        <responseFormat>HTML</responseFormat>
+        <status>Published</status>
+        <versionIdentifier>/Vp/m5BL5bibCVTH1mq7IucAWunZODlP02qAvcbq98Y=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

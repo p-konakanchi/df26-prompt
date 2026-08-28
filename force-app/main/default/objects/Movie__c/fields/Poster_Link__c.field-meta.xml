@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Poster_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;https://image.tmdb.org/t/p/w185/&quot; &amp;  Poster_Path__c  &amp; &quot;.jpg&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Poster Link</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

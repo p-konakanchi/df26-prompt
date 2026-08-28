@@ -1,0 +1,111 @@
+.ranked-movie-card__wrapper {
+    width: 100%;
+}
+
+.ranked-movie-card__row {
+    width: 100%;
+    box-sizing: border-box;
+    background: #1f1f1f !important;
+    border-color: #2e2e2e !important;
+}
+
+.ranked-movie-card__row .slds-text-heading_small {
+    color: #f5f5f5;
+}
+
+.ranked-movie-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background: #1f1f1f;
+    border: 1px solid #2e2e2e;
+    border-radius: 8px;
+    padding: 0.75rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.ranked-movie-card:hover {
+    box-shadow: 0 4px 14px 0 rgba(229, 48, 62, 0.3);
+}
+
+.ranked-movie-card_top-pick {
+    box-shadow: 0 0 0 3px #e5303e, 0 4px 14px 0 rgba(229, 48, 62, 0.35);
+    border-radius: 8px;
+    border-color: transparent;
+}
+
+.ranked-movie-card__top-pick-flag {
+    position: absolute;
+    top: -0.75rem;
+    left: 0.75rem;
+    background: #e5303e;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ranked-movie-card__poster {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 180px;
+    border-radius: 4px;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ranked-movie-card__body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ranked-movie-card__body .slds-text-heading_small {
+    color: #f5f5f5;
+}
+
+.ranked-movie-card__body .slds-text-color_weak {
+    color: #a8a8a8 !important;
+}
+
+.ranked-movie-card__badge {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background: #706e6b;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.ranked-movie-card__badge_go {
+    background: #04844b;
+}
+
+.ranked-movie-card__badge_backup {
+    background: #b98200;
+}
+
+.ranked-movie-card__badge_skip {
+    background: #c23934;
+}
+
+.ranked-movie-card__plot {
+    line-height: 1.35;
+    color: #cfcfcf;
+}
+
+.ranked-movie-card__reasoning {
+    line-height: 1.35;
+    font-style: italic;
+    font-size: small;
+    font-weight: bold;
+}
