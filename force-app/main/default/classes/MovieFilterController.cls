@@ -24,7 +24,7 @@ public with sharing class MovieFilterController {
 
         if (minYear != null) {
             conditions.add('Year__c >= :bind' + bindIndex);
-            bindArgs.add(minYear);
+            bindArgs.add(String.valueOf(minYear));
             bindIndex++;
         }
         if (genres != null && !genres.isEmpty()) {
