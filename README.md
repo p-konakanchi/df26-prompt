@@ -1,18 +1,22 @@
-# Salesforce DX Project: Next Steps
+# Unlock Advanced Capabilities in Prompt Builder – Resources
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## 📚 Official Documentation
 
-## How Do You Plan to Deploy Your Changes?
+- [JSON and HTML Structured Outputs in Prompt Builder](https://help.salesforce.com/s/articleView?id=ai.prompt_builder_use_structured_outputs_responses.htm&type=5)
+- [Batch Generation in Prompt Builder](https://help.salesforce.com/s/articleView?id=ai.generative_ai_batch_models.htm&type=5)
+- [Prompt Template Batch Processing in Apex](https://developer.salesforce.com/docs/ai/agentforce/guide/prompt-template-batch-job.html)
+- [Web Grounding for Prompts with Web Actions](https://help.salesforce.com/s/articleView?id=ai.copilot_add_search_the_web_to_prompt_template.htm&type=5)
+- [Use Prompt Templates as Actions](https://help.salesforce.com/s/articleView?id=ai.prompt_builder_use_prompt_template_actions.htm&type=5)
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 🎓 More New Features
 
-## Configure Your Salesforce DX Project
+- [Pass Data between Actions in Prompt Builder](https://help.salesforce.com/s/articleView?id=ai.prompt_builder_configure_data_piping.htm&type=5)
+- [Use Conditional Logic in Prompt Templates](https://help.salesforce.com/s/articleView?id=ai.prompt_builder_use_conditional_logic.htm&type=5)
+- [Author Prompts Faster with the Block Editor](https://help.salesforce.com/s/articleView?id=ai.prompt_builder_understand_block_editor.htm&type=5)
+- [Test Prompt Templates in Agentforce Testing Center](https://help.salesforce.com/s/articleView?id=release-notes.rn_einstein_testing_center_prompt_template_batch_testing.htm&release=262&type=5)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## 💻 Other Links
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- [Agentblazer Community on Slack](https://sfdc.co/agentblazer)
+- [Blog: Building AI Automations with Prompt Builder Structured Outputs](https://developer.salesforce.com/blogs/2026/04/building-ai-automations-with-prompt-builder-structured-outputs)
+- [Demo Source Code: Movie Night App](https://github.com/p-konakanchi/df26-prompt)
